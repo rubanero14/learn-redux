@@ -4,6 +4,13 @@ import "./index.css";
 
 const url = "https://jsonplaceholder.typicode.com/todos/1";
 
+const upperCaseStr = (str) => {
+  return str
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+};
+
 export default function WiproTest() {
   const [input, setInput] = useState("");
   const [isBtnClicked, setIsBtnClicked] = useState(false);
@@ -31,10 +38,14 @@ export default function WiproTest() {
         className="me-2"
         placeholder="Enter your name.."
       />
-      <button className="me-2" onClick={displayName}>
+      <button className="me-2" onClick={displayName} disabled={counter < 11}>
         Display Name
       </button>
-      <button onClick={() => setCounter(counter + 1)}>Counter {counter}</button>
+      {counter >= 0 && counter < 11 && (
+        <button onClick={() => setCounter(counter + 1)}>
+          Countdown - {11 - counter}
+        </button>
+      )}
       {isBtnClicked && counter > 10 && (
         <>
           <hr className="my-2" />
@@ -42,7 +53,7 @@ export default function WiproTest() {
         </>
       )}
       <hr className="my-2" />
-      {quoteData !== null && <h2>Title: {quoteData.title}</h2>}
+      {quoteData !== null && <h2>Title: {upperCaseStr(quoteData.title)}</h2>}
     </div>
   );
 }
