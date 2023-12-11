@@ -31,6 +31,10 @@ export default function WiproTest() {
 
   return (
     <>
+      <p>
+        Test 1 : Display the name from input when display name button is clicked
+        and countdown equals to zero
+      </p>
       <div className="card">
         <input
           type="text"
@@ -40,7 +44,7 @@ export default function WiproTest() {
           placeholder="Enter your name.."
         />
         <button
-          className="wipro me-2"
+          className={"wipro " + (counter < 11 ? "me-2" : "")}
           onClick={displayName}
           disabled={counter < 11}
         >
@@ -51,14 +55,14 @@ export default function WiproTest() {
             Countdown - {11 - counter}
           </button>
         )}
-        {isBtnClicked && counter > 10 && (
-          <>
-            <hr className="my-2" />
-            <h1>Hello {input}!</h1>
-          </>
-        )}
       </div>
+      {isBtnClicked && counter > 10 && (
+        <>
+          <h1>Hello {input} !</h1>
+        </>
+      )}
       <hr className="my-2" />
+      <p>Test 2 : API Call</p>
       <div className="card read-the-docs">
         {quoteData !== null && <h2>Title: {upperCaseStr(quoteData.title)}</h2>}
       </div>
