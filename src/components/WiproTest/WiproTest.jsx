@@ -30,30 +30,38 @@ export default function WiproTest() {
   }, []);
 
   return (
-    <div>
-      <input
-        type="text"
-        onChange={() => setInput(event.target.value)}
-        value={input}
-        className="me-2"
-        placeholder="Enter your name.."
-      />
-      <button className="me-2" onClick={displayName} disabled={counter < 11}>
-        Display Name
-      </button>
-      {counter >= 0 && counter < 11 && (
-        <button onClick={() => setCounter(counter + 1)}>
-          Countdown - {11 - counter}
+    <>
+      <div className="card">
+        <input
+          type="text"
+          onChange={() => setInput(event.target.value)}
+          value={input}
+          className="me-2"
+          placeholder="Enter your name.."
+        />
+        <button
+          className="wipro me-2"
+          onClick={displayName}
+          disabled={counter < 11}
+        >
+          Display Name
         </button>
-      )}
-      {isBtnClicked && counter > 10 && (
-        <>
-          <hr className="my-2" />
-          <h1>Hello {input}!</h1>
-        </>
-      )}
+        {counter >= 0 && counter < 11 && (
+          <button className="wipro" onClick={() => setCounter(counter + 1)}>
+            Countdown - {11 - counter}
+          </button>
+        )}
+        {isBtnClicked && counter > 10 && (
+          <>
+            <hr className="my-2" />
+            <h1>Hello {input}!</h1>
+          </>
+        )}
+      </div>
       <hr className="my-2" />
-      {quoteData !== null && <h2>Title: {upperCaseStr(quoteData.title)}</h2>}
-    </div>
+      <div className="card read-the-docs">
+        {quoteData !== null && <h2>Title: {upperCaseStr(quoteData.title)}</h2>}
+      </div>
+    </>
   );
 }

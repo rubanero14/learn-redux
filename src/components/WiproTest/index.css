@@ -54,3 +54,27 @@
   display: block;
   margin: 1rem auto;
 }
+
+button.wipro {
+  font-size: 12px;
+  width: 125px;
+}
+
+input {
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  button.wipro {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+}
